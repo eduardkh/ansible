@@ -1,8 +1,8 @@
-- name: "Playing with Ansible and Git"
+- name: "Playing with Ansible"
   hosts: 192.168.99.151
-  gather_facts: false
-  # connection: ssh
-  # become: true
+  connection: ssh
+  become: true
+  # gather_facts: false
   tasks:
 
   - name: Install pip

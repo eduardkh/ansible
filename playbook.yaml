@@ -1,0 +1,12 @@
+- name: "Playing with Ansible and Git"
+  hosts: 192.168.99.151
+  gather_facts: false
+  # connection: ssh
+  # become: true
+  tasks:
+
+  - name: Install pip
+    ansible.builtin.apt:
+      update_cache: yes
+      name: "pip"
+      state: latest

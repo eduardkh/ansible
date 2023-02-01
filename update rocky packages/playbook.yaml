@@ -1,12 +1,12 @@
 - name: "Playing with Ansible"
-  hosts: ubuntu
+  hosts: rocky
   connection: ssh
   become: true
   # gather_facts: false
   tasks:
 
-  - name: Install pip
-    ansible.builtin.apt:
+  - name: Update rocky packages
+    ansible.builtin.dnf:
       update_cache: yes
-      name: "pip"
+      name: "*"
       state: latest

@@ -1,0 +1,17 @@
+- name: "Playing with Ansible"
+  hosts: ubuntu
+  connection: ssh
+  become: true
+  # gather_facts: false
+  tasks:
+    - name: Gather available local users
+      ansible.builtin.getent:
+        database: passwd
+    # Debugging output to get familar with the data structure
+    # - name: Show all gathered local user information
+    #   ansible.builtin.debug:
+    #     var: getent_passwd
+    - name: Show gathered local user names only
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      loop: "{{ getent_passwd.keys() | list }}"

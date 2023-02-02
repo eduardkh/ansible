@@ -1,0 +1,11 @@
+- name: "Playing with Ansible"
+  hosts: rocky ubuntu
+  connection: ssh
+  become: true
+  # gather_facts: false
+  vars:
+    user: eddie
+  tasks:
+    - name: Create a User {{ user }}
+      ansible.builtin.user:
+        name: "{{ user }}"

@@ -4,9 +4,8 @@
   become: true
   # gather_facts: false
   tasks:
-
-  - name: Install pip
-    ansible.builtin.apt:
-      update_cache: yes
-      name: "pip"
-      state: latest
+    - name: Install pip
+      ansible.builtin.apt:
+        update_cache: true
+        name: "pip"
+        state: latest

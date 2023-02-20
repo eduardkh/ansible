@@ -1,0 +1,7 @@
+- name: "Playing with Ansible"
+  hosts: rocky
+  tasks:
+    - ansible.builtin.command: cat /etc/passwd
+      register: passwd_contents
+    - ansible.builtin.debug:
+        var: "passwd_contents"

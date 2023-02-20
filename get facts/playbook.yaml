@@ -1,0 +1,9 @@
+- name: "Playing with Ansible"
+  hosts: all
+  connection: ssh
+  become: true
+  # gather_facts: false
+  tasks:
+    - name: Show all facts
+      debug:
+        var: ansible_facts

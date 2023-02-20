@@ -1,9 +1,12 @@
 - name: "Playing with Ansible"
   hosts: rocky
   tasks:
-    - ansible.builtin.command: cat /etc/passwd
+    - name: "Read the passwd file"
+      ansible.builtin.command: cat /etc/passwd
       register: passwd_contents
-    - ansible.builtin.debug:
+    - name: "Save passwd content to passwd_contents"
+      ansible.builtin.debug:
         var: "passwd_contents"
-    - ansible.builtin.debug:
+    - name: "Print command status to the CLI"
+      ansible.builtin.debug:
         msg: "command status {{ passwd_contents['rc'] }}"

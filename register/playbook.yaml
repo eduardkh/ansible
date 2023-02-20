@@ -5,3 +5,5 @@
       register: passwd_contents
     - ansible.builtin.debug:
         var: "passwd_contents"
+    - ansible.builtin.debug:
+        msg: "command status {{ passwd_contents['rc'] }}"

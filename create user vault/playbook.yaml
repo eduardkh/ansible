@@ -1,0 +1,12 @@
+- name: "Playing with Ansible"
+  hosts: rocky
+  connection: ssh
+  become: true
+  # gather_facts: false
+  vars_files:
+    - secret.yaml
+  tasks:
+    - name: Create a User with Ansible secrets
+      ansible.builtin.user:
+        name: "{{ username }}"
+        password: "{{ pwhash | password_hash('sha512') }}"

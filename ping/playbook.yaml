@@ -1,0 +1,10 @@
+- name: "Playing with Ansible"
+  # hosts: all
+  # hosts: ubuntu
+  hosts: rocky
+  connection: ssh
+  become: true
+  # gather_facts: false
+  tasks:
+    - name: Ansible ping
+      ansible.builtin.ping:

@@ -27,6 +27,19 @@ ansible-playbook ping/playbook.yaml
 > create user vault
 
 ```bash
+# passlib for password encryption
 sudo pip install passlib
-ansible-playbook --ask-vault-pass create\ user\ vault/playbook.yaml
+
+# create ansible-vault file
+ansible-vault create 'create user vault/secret.yaml'
+
+# example user in secret.yaml file
+username: david
+pwhash: password
+
+# edit ansible-vault file
+ansible-vault edit 'create user vault/secret.yaml'
+
+# Run playbook
+ansible-playbook --ask-vault-pass 'create user vault/playbook.yaml'
 ```
